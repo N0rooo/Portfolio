@@ -1,0 +1,276 @@
+html {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    overflow-y: hidden;
+    @include mobile {
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+}
+body {
+    height: 100vh;
+    color: white;
+    animation: change 70s infinite;
+}
+
+input,
+textarea {
+    font-size: 1vw;
+    font-family: "Poppins", sans-serif;
+}
+a {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+li {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 6vw;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 4vw;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1vw;
+    @include mobile {
+        font-size: 3vw;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+    padding: 2rem 0;
+    @include mobile {
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    > div {
+        width: 10%;
+        display: flex;
+        justify-content: start;
+        @include mobile {
+            justify-content: end;
+            
+        }
+
+        > a {
+            margin: 0 3%;
+            
+        }
+
+        i {
+            color: white;
+            transition: 0.5s;
+            transition: color 0.2s;
+
+            &:hover {
+                color: $hot-color;
+            }
+        }
+    }
+
+    > ul {
+        display: flex;
+        width: 50%;
+        justify-content: end;
+        @include mobile {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        > a {
+            padding: 0 2%;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: color 0.2s;
+            @include mobile{
+                padding: 2vw 0;
+            }
+
+            &:hover {
+                color: $hot-color;
+            }
+        }
+    }
+}
+
+progress::-moz-progress-bar {
+    background: $hot-color;
+    border-radius: 20px;
+}
+progress::-webkit-progress-value {
+    background-color: $hot-color;
+    border-radius: 20px;
+}
+progress::-webkit-progress-bar {
+    background-color: rgb(167, 167, 167);
+    border-radius: 20px;
+}
+
+progress {
+    height: 0.2rem;
+    border: none;
+    border-radius: 20px;
+    margin: 0.5rem 0;
+    width: 100%;
+    background-color: rgb(167, 167, 167);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 20px 0;
+    z-index: 0;
+    
+
+    @include mobile {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        color: grey;
+    }
+}
+
+.visible_sk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: default;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 1s;
+}
+
+.hidden_sk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    opacity: 0;
+    transition: 0.7s;
+
+    @include mobile {
+        transform: translateX(-500px);
+        transition: 0.5s;
+        max-height: 0;
+    }
+    @include pc {
+        transform: translateX(-1500px);
+    }
+}
+
+.underline {
+    border-bottom: solid white 3px;
+    @include mobile {
+        border-bottom: solid white 1px;
+        width: 60%;
+    }
+
+    &:hover {
+        border-bottom: solid $hot-color 3px;
+    }
+}
+
+.btns_skills {
+    position: relative;
+}
+
+.btns_skills:before {
+    border-bottom: solid white 3px;
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.btns_skills:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+    border-bottom: solid $hot-color 3px;
+    @include mobile{
+        transform: scaleX(0);
+        visibility: hidden;
+    }
+}
+
+.visible_txt {
+    text-align: justify;
+    opacity: 1;
+    transition: 0.8s;
+    transform: translateX(0);
+
+    @include mobile {
+        transition: 0.5s;
+    }
+
+    > p {
+        font-size: default;
+    }
+}
+
+.hidden_txt {
+    text-align: justify;
+    height: 0;
+    opacity: 0;
+    transition: 1s;
+    @include mobile {
+        transform: translateX(-1000px);
+        transition: 0.5s;
+    }
+    @include pc {
+        transform: translateX(1500px);
+    }
+}
+
+.btn_select {
+    color: $hot-color;
+}
+
+.p_visible {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.8s;
+    
+
+    > div{
+        height: 20vw;
+    }
+}
+
+.p_hidden {
+    display: flex;
+    max-height: 0;
+    opacity: 0;
+    transition: 0.8s;
+    @include pc{
+        transform: translateX(1500px);
+    }
+    @include mobile{
+        transform: translateX(-1000px);
+    }
+    
+    > div{
+        height: 20vw;
+    }
+}

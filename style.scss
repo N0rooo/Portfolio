@@ -1,0 +1,775 @@
+@import "abstract/variable";
+@import "abstract/mixins";
+@import "base/reset", "base/base";
+@import "base/animation";
+
+.container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    @include mobile {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+    }
+    > section {
+        display: flex;
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+            transform: none !important;
+        }
+        > section {
+            min-width: 100%;
+            height: 100vh;
+            scroll-snap-align: start;
+
+            @include mobile {
+                max-width: 150px;
+            }
+        }
+        > section:nth-of-type(1) {
+            @include mobile {
+                height: auto;
+                min-height: 580px;
+                border-bottom: solid 1px grey;
+            }
+            > div:nth-of-type(1) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            > article:nth-of-type(1) {
+                display: flex;
+                justify-content: center;
+                margin: 10%;
+                margin-top: 2rem;
+                @include mobile {
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                > img {
+                    max-height: 400px;
+                    width: 15%;
+                    object-fit: contain;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    z-index: 10;
+                    @include mobile {
+                        min-width: 150px;
+                    }
+                }
+
+                > div {
+                    min-width: 20%;
+
+                    > p {
+                        @include mobile {
+                            font-size: 150%;
+                        }
+                    }
+                }
+            }
+        }
+
+        // About
+
+        > section:nth-of-type(2) {
+            @include mobile {
+                height: auto;
+                padding: 20vw 0;
+                border-bottom: solid 1px grey;
+            }
+            // title about
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                @include mobile{
+                    padding: 10vw;
+                }
+            }
+            // about content + titles
+            > section {
+                display: flex;
+                flex-direction: column;
+
+                // titles skills / description
+                > div:nth-of-type(1) {
+                    display: flex;
+                    justify-content: center;
+                    padding: 2rem 0;
+                    @include mobile {
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                    }
+
+                    // each title
+                    > div {
+                        display: flex;
+                        @include mobile {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+
+                        &:nth-of-type(1) {
+                            justify-content: flex-end;
+                            width: 60%;
+                        }
+                        &:nth-of-type(2) {
+                            justify-content: center;
+                            width: 40%;
+                        }
+
+                        > div {
+                            display: flex;
+                            margin: 0 4vw;
+                            justify-content: center;
+                            padding-bottom: 10px;
+                            cursor: pointer;
+                            @include mobile {
+                                margin: 2vw 0;
+                            }
+                            &:hover {
+                                color: $hot-color;
+                            }
+
+                            > h3 {
+                                margin: 0 0.7rem;
+                            }
+                        }
+                    }
+                }
+                //  ab_content
+                > div:nth-of-type(2) {
+                    display: flex;
+                    margin: 0 2vw;
+                    @include mobile {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    // skills  parent
+                    > div:nth-of-type(1) {
+                        width: 65%;
+                        @include mobile {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 280px;
+                        }
+
+                        // skills
+
+                        > article {
+                            @include mobile {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                            }
+                            > div {
+                                width: 60%;
+                                display: flex;
+                                flex-direction: column;
+                                padding: 0.5vw 0;
+                                > div {
+                                    display: flex;
+                                    justify-content: space-between;
+                                }
+                            }
+                        }
+                    }
+                    > div:nth-of-type(2) {
+                        width: 40%;
+                        display: flex;
+                        @include mobile {
+                            width: 100%;
+                            justify-content: center;
+                            line-height: 100%;
+                            height: 200px;
+                        }
+
+                        > div {
+                            width: 60%;
+                            @include mobile {
+                                width: 80%;
+                            }
+
+                            > h3 {
+                                text-align: center;
+                                padding-bottom: 1vw;
+                                color: $hot-color;
+                                @include mobile {
+                                    margin: 2vw 0;
+                                }
+                            }
+                            > article {
+                                > div {
+                                    display: flex;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Projects
+
+        > section:nth-of-type(3) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include mobile {
+                height: 220vw;
+                padding: 20vw 0;
+                border-bottom: solid 1px grey;
+                line-height: 100%;
+            }
+
+            > div:nth-of-type(1) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                @include mobile{
+                    padding: 10vw;
+                }
+            }
+            > div:nth-of-type(2) {
+                display: flex;
+                width: 90%;
+                justify-content: center;
+                align-items: center;
+                @include mobile {
+                    flex-direction: column;
+                }
+
+                > article {
+                    display: flex;
+                    margin: 4vw 0;
+                }
+                > article:nth-of-type(1) {
+                    width: 20%;
+                    justify-content: center;
+                    @include mobile {
+                        width: 100%;
+                    }
+
+                    > div:nth-of-type(1) {
+                        // overflow-y: scroll;
+                        border-top: solid 2px white;
+                        border-bottom: solid 2px white;
+                        padding: 1vw 0;
+                        text-align: center;
+
+                        @include pc {
+                            max-height: 15vw;
+                        }
+                        @include mobile {
+                            display: flex;
+                            border: none;
+                            border-right: solid 1px white;
+                            border-left: solid 1px white;
+                            overflow-y: hidden;
+                        }
+
+                        > div {
+                            margin: 1vw;
+                            transition: 0.5s;
+                            cursor: pointer;
+                            @include mobile {
+                                padding: 1vw 7vw;
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            > h4:hover {
+                                color: $hot-color;
+                            }
+                        }
+                    }
+                }
+
+                > article:nth-of-type(2) {
+                    width: 70%;
+                    height: 20vw;
+                    padding: 0 2vw;
+                    display: flex;
+                    flex-direction: column;
+                    @include mobile {
+                        height: auto;
+                        width: 100%;
+                    }
+
+                    > article {
+                        display: flex;
+                        @include pc {
+                            justify-content: center;
+                        }
+
+                        @include mobile {
+                            flex-direction: column;
+                        }
+                        > div:nth-of-type(1) {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            padding-right: 1vw;
+                            border-right: solid 1px $hot-color;
+                            @include mobile {
+                                height: auto;
+                                border: none;
+                                width: 100%;
+                            }
+
+                            > div {
+                                display: flex;
+                                align-items: center;
+                                padding: 2vw;
+                                @include mobile {
+                                    flex-wrap: wrap;
+                                    padding: 10vw 0;
+                                }
+                            }
+                        }
+                        > div:last-of-type {
+                            padding: 1vw 0;
+                            padding-left: 1vw;
+                            width: 10%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            @include mobile {
+                                width: 100%;
+                                flex-direction: row;
+                                height: 15vw;
+                                justify-content: center;
+                            }
+                            > a {
+                                color: white;
+                                margin: 0.5vw 0;
+                                @include mobile {
+                                    margin: 0 2vw;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: flex-end;
+                                    align-items: center;
+                                }
+                                &:hover {
+                                    color: $hot-color;
+                                }
+                                > i {
+                                    padding: 0.5vw 1vw;
+                                }
+                                > p {
+                                    font-size: 0.8vw;
+                                    @include mobile {
+                                        font-size: 2vw;
+                                        margin: 0 2vw;
+                                    }
+                                }
+                                > span {
+                                    padding: 0.5vw 1.5vw;
+                                }
+                            }
+                        }
+                        h3 {
+                            color: $hot-color;
+                            padding: 1vw 0;
+                            @include mobile{
+                                padding: 5vw 0;
+                            }
+                            
+                        }
+                        > p {
+                            padding: 1vw 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: $hot-color transparent;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: $hot-color;
+            -webkit-border-radius: 1ex;
+        }
+
+        // Contact
+
+        > section:nth-of-type(4) {
+            @include mobile {
+                height: 230vw;
+                padding: 20vw 0;
+                border-bottom: solid 1px grey;
+                line-height: 100%;
+            }
+            > div:nth-of-type(1) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                >h2{
+                    @include mobile{
+                        padding: 10vw;
+                    }
+                }
+
+                > article:nth-of-type(1) {
+                    display: flex;
+                    width: 90%;
+                    justify-content: center;
+                    margin-top: 2rem;
+                    @include mobile {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    > div {
+                        width: 50%;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        flex-direction: column;
+                        display: flex;
+                        padding: 1vw;
+                        @include mobile {
+                            width: 100%;
+                            align-items: center;
+                        }
+
+                        > div:nth-of-type(1) {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            @include mobile {
+                                width: 100%;
+                                align-items: center;
+                            }
+
+                            p {
+                                width: 80%;
+                                line-height: 140%;
+                            }
+
+                            p:nth-of-type(3) {
+                                padding: 1vw 0;
+                            }
+                        }
+
+                        > div:nth-of-type(2) {
+                            display: flex;
+                            padding-top: 2vw;
+                            justify-content: flex-start;
+                            > a {
+                                display: flex;
+                                margin: 0 1vw;
+                                color: white;
+                                transition: 0.2s;
+
+                                &:hover {
+                                    color: $hot-color;
+                                }
+
+                                > p {
+                                    display: flex;
+                                    align-items: flex-end;
+                                    padding: 0 1vw;
+                                }
+                            }
+                        }
+                    }
+                    > form {
+                        width: 40%;
+                        flex-direction: column;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        @include mobile {
+                            width: 80%;
+                            padding: 15vw 0;
+                        }
+
+                        > h3 {
+                            text-align: center;
+                            padding: 1rem 0;
+                            color: $hot-color;
+                            margin-bottom: 2%;
+                            @include mobile {
+                                margin: 8vw 0;
+                            }
+                        }
+
+                        > div {
+                            display: flex;
+                            justify-content: space-between;
+                            @include mobile {
+                                flex-wrap: wrap;
+                                justify-content: center;
+                            }
+
+                            > div {
+                                @include mobile {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    justify-content: space-evenly;
+                                    width: 100%;
+                                }
+                                > input {
+                                    @include mobile {
+                                        width: 50%;
+                                    }
+                                }
+                            }
+                            input {
+                                padding: 0.5vw;
+                                max-width: 30%;
+                                background-color: transparent;
+                                border: solid 1px white;
+                                color: white;
+                                transition: 0.5s;
+                                @include mobile {
+                                    font-size: 4vw;
+                                    padding: 3vw;
+                                    margin: 2vw 0;
+                                    max-width: auto;
+                                    display: flex;
+                                }
+
+                                &:focus {
+                                    border: solid 1px $hot-color;
+                                    outline: none;
+                                }
+                            }
+                        }
+
+                        textarea {
+                            width: 100%;
+                            margin: 1vw 0;
+                            background-color: transparent;
+                            resize: none;
+                            border: solid 1px white;
+                            color: white;
+                            transition: 0.5s;
+                            @include mobile {
+                                font-size: 4vw;
+                                margin: 2vw 0;
+                            }
+
+                            &:focus {
+                                border: solid 1px $hot-color;
+                                outline: none;
+                            }
+                        }
+                        > input {
+                            background-color: transparent;
+                            padding: 0.5vw;
+                            width: 12%;
+                            border: solid 1px white;
+                            color: white;
+                            transition: 0.5s;
+                            cursor: pointer;
+
+                            @include mobile {
+                                font-size: 4vw;
+                                padding: 2vw 3vw;
+                                width: auto;
+                            }
+
+                            &:hover {
+                                border: solid 1px $hot-color;
+                                color: $hot-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// redirect
+
+.img_ea {
+    height: 10vw;
+    display: flex;
+    @include mobile {
+        height: auto;
+    }
+    > img {
+        height: 10vw;
+        box-shadow: rgba(80, 84, 88, 0.2) 0px 8px 24px;
+        @include mobile {
+            display: none;
+        }
+    }
+}
+.img_pulv {
+    width: auto;
+    height: auto;
+    @include mobile {
+        display: flex;
+        justify-content: center;
+    }
+    > img {
+        width: 4vw;
+        margin: 0 1vw;
+        transition: 0.4s;
+        cursor: pointer;
+        box-shadow: rgba(80, 84, 88, 0.2) 0px 8px 24px;
+
+        @include mobile {
+            display: flex;
+            flex-wrap: wrap;
+            width: 15vw;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.img_pp {
+    > a {
+        @include mobile {
+            display: flex;
+            justify-content: center;
+            margin: 10vw 0;
+        }
+        > img {
+            height: 10vw;
+            box-shadow: rgba(80, 84, 88, 0.2) 0px 8px 24px;
+            transition: 0.5s;
+            @include mobile {
+                height: auto;
+                width: 90%;
+            }
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+.img_mop {
+    > a {
+        @include mobile {
+            display: flex;
+            justify-content: center;
+            margin: 10vw 0;
+        }
+        > img {
+            height: 10vw;
+            box-shadow: rgba(80, 84, 88, 0.2) 0px 8px 24px;
+            transition: 0.5s;
+            @include mobile {
+                height: auto;
+                width: 90%;
+            }
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+.redirect {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+        color: $hot-color;
+    }
+
+    > h3 {
+        padding: 0.5vw 0;
+        > a {
+            color: white;
+            text-decoration: underline;
+            transition: 0.2s;
+
+            &:hover {
+                color: $hot-color;
+            }
+        }
+    }
+}
+
+// lightbox
+
+.lightbox {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.black_bck {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 10, 10, 0.68);
+    z-index: 80;
+}
+
+.go_top {
+    position: fixed;
+    bottom: 8vw;
+    right: 5vw;
+    padding: 4vw;
+    display: none;
+    z-index: 10;
+    align-items: center;
+    flex-direction: column;
+    
+
+    @include mobile {
+        display: flex;
+    }
+
+    >p{
+        font-size: 4vw;
+        margin: 2vw 0;
+    }
+}
+
+.mobile_back {
+    position: fixed;
+    inset:0;
+    background: linear-gradient(180deg, rgba(2, 2, 8, 0) 60%, rgba(0, 0, 0, 0.796) 95%);
+    pointer-events: none;
+    display: none;
+    @include mobile {
+        display: block;
+    }
+}
